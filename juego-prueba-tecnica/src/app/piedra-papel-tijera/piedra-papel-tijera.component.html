@@ -1,1 +1,44 @@
-<p>piedra-papel-tijera works!</p>
+<div class="game-container">
+    <h2>Piedra, Papel o Tijera</h2>
+  
+    <div *ngIf="!juegoIniciado">
+      <h3>Registro de Jugadores</h3>
+      <form (ngSubmit)="registrarJugadores()">
+        <label for="jugador1">Nombre del Jugador 1:</label>
+        <input id="jugador1" [(ngModel)]="jugador1Nombre" name="jugador1" required />
+  
+        <label for="jugador2">Nombre del Jugador 2:</label>
+        <input id="jugador2" [(ngModel)]="jugador2Nombre" name="jugador2" required />
+  
+        <button type="submit">Iniciar Juego</button>
+      </form>
+    </div>
+  
+    <div *ngIf="juegoIniciado">
+      <h3>Ronda {{rondaActual}}</h3>
+      <div *ngIf="!rondaTerminada">
+        <div *ngIf="!movimientoJugador1">
+          <h4>{{jugador1Nombre}}, elige tu movimiento:</h4>
+          <button (click)="seleccionarMovimiento('Piedra')">Piedra</button>
+          <button (click)="seleccionarMovimiento('Papel')">Papel</button>
+          <button (click)="seleccionarMovimiento('Tijera')">Tijera</button>
+        </div>
+        <div *ngIf="movimientoJugador1 && !movimientoJugador2">
+          <h4>{{jugador2Nombre}}, elige tu movimiento:</h4>
+          <button (click)="seleccionarMovimiento('Piedra')">Piedra</button>
+          <button (click)="seleccionarMovimiento('Papel')">Papel</button>
+          <button (click)="seleccionarMovimiento('Tijera')">Tijera</button>
+        </div>
+      </div>
+  
+      <div *ngIf="rondaTerminada">
+        <h4>Resultado de la Ronda: {{resultadoRonda}}</h4>
+        <button (click)="siguienteRonda()">Siguiente Ronda</button>
+      </div>
+  
+      <div *ngIf="ganador">
+        <h3>{{ganador}} ha ganado la partida!</h3>
+        <button (click)="reiniciarJuego()">Iniciar Nuevo Juego</button>
+      </div>
+    </div>
+  </div>
