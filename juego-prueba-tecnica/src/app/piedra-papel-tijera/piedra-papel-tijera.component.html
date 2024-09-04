@@ -31,13 +31,13 @@
         </div>
       </div>
   
-      <div *ngIf="rondaTerminada">
+      <div *ngIf="rondaTerminada && !ganador">
         <h4>Resultado de la Ronda: {{resultadoRonda}}</h4>
         <button (click)="siguienteRonda()">Siguiente Ronda</button>
       </div>
   
       <div *ngIf="ganador">
-        <h3>{{ganador}} ha ganado la partida!</h3>
+        <h3>{{ganador}}</h3>
         <button (click)="reiniciarJuego()">Iniciar Nuevo Juego</button>
       </div>
     </div>
