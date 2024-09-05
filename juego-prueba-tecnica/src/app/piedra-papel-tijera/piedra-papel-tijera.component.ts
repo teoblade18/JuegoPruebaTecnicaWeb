@@ -24,7 +24,8 @@ export class PiedraPapelTijeraComponent {
   private idJugador1 = 0;
   private idJugador2 = 0;
   private idPartida = 0;
-  private apiUrl = 'https://localhost:7174/api/PartidaService';
+  //private apiUrl = 'https://localhost:7174/api/PartidaService';
+  private apiUrl = 'https://piedra-papel-tijera-a4cwedfhd2bbe2aq.eastus-01.azurewebsites.net/api/PartidaService';
 
   constructor(private http: HttpClient) {}
 
