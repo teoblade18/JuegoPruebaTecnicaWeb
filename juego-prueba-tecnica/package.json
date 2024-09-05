@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=18"
+  },
   "name": "juego-prueba-tecnica",
   "version": "0.0.0",
   "scripts": {
